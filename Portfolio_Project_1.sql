@@ -46,6 +46,7 @@ SELECT COUNT(CASE WHEN loan_status != 'Charged off' THEN id END) AS Total_Good_L
 		SUM(CASE WHEN loan_status != 'Charged off' THEN total_payment END) - 
 		SUM(CASE WHEN loan_status != 'Charged off' THEN loan_amount END) AS Good_Loan_PNL
 FROM Portfolio_Project_1..Status--GOOD LOANS SUMMARY
+	
 SELECT 
     Total_Good_Loan_Applications,
     ROUND(100.0 * Total_Good_Loan_Applications / Total_Loan_Applications, 1) AS Good_Loan_Percentage,
@@ -91,6 +92,7 @@ SELECT COUNT(CASE WHEN loan_status = 'Charged off' THEN id END) AS Total_Bad_Loa
 		SUM(CASE WHEN loan_status = 'Charged off' THEN total_payment END) - 
 		SUM(CASE WHEN loan_status = 'Charged off' THEN loan_amount END) AS Bad_Loan_PNL
 FROM Portfolio_Project_1..Status--BAD LOANS SUMMARY
+	
 SELECT 
     Total_Bad_Loan_Applications,
     ROUND(100.0 * Total_Bad_Loan_Applications / Total_Loan_Applications, 1) AS Bad_Loan_Percentage,
